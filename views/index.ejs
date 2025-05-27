@@ -43,19 +43,18 @@
       <!-- ///////////////////// -->
       <section class="allcontainer">
         <div>
-          <form  class="formFlex" action="/random" method="get">
-            <button  class="longbtn " type="submit">Get Random Jokes</button>
-          </form>
           <div class="content">
             <%= content3 %>
           </div>
+          <form  class="formFlex" action="/random" method="get">
+            <button  class="longbtn " type="submit">Get Random Jokes</button>
+          </form>
         </div>
       </section>
       <!-- //////////////// -->
       <section class="allcontainer">
         <div class="category">
           <form action="/category" method="get" class="formFlex">
-            <button class="longbtn" type="submit">Jokes by Category</button>
             <label for="category" style="color: #5c3bee;">Choose a category:</label>
             <select name="category" id="category" class="formcontrol">
               <option value="Programming">Programming</option>
@@ -79,6 +78,7 @@
               <label><input type="checkbox"name="type" value="single">single</label>
               <label><input type="checkbox"name="type" value = "twopart">twopart</label>
             </fieldset>
+            <button class="longbtn" type="submit">Jokes by Category</button>
           </form>
           <div class="content">
             <%= content4 %>

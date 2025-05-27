@@ -125,15 +125,20 @@ app.get("/category", async (req, res) => {
     const response = await axios.get(url);
     const data = response.data;
     res.render("index", {
-      content1: content1,
+      content1: cont1,
       content2: cont2,
       content3: cont3,
       content4: data,
       content5: cont5,
     });
   } catch (error) {
-    console.error("you have an error :", error);
-    res.render("index", { content4: "error fetching data from API" });
+    res.render("index", {
+      content1: cont1,
+      content2: cont2,
+      content3: cont3,
+      content4: "error fetching data from API, no matching jokes found",
+      content5: cont5,
+    });
   }
 });
 // server start
