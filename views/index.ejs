@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Caveat:wght@400..700&family=DM+Sans:ital,opsz,wght@0,9..40,300;1,9..40,300&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Jokes From Pain</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="/">JokesWPain</a>
+        </div>
+      </nav>
+      <!-- //////////// -->
+      <section id="string" class="allcontainer">
+        <div class="divHeight">
+          <form action="/jokesbystring" method="get">
+            <input class="formcontrol" type="text" name="searchbystring" placeholder="Search for a joke" />
+            <button type="submit" class="button">Search</button>
+          </form>
+          <div class="content">
+            <p><%= content1 %></p>
+          </div>
+        </div>
+      </section>
+      <!-- ///////////////////////// -->
+      <section class="allcontainer">
+        <div>
+          <form action="/jokesById" method="get">
+            <input class="formcontrol" type="text" name="searchById" placeholder="Search by ID" />
+            <button type="submit" class="button">Search</button>
+          </form>
+          <div class="content">
+            <%= content2 %>
+          </div>
+        </div>
+      </section>
+      <!-- ///////////////////// -->
+      <section class="allcontainer">
+        <div>
+          <form  class="formFlex" action="/random" method="get">
+            <button  class="longbtn " type="submit">Get Random Jokes</button>
+          </form>
+          <div class="content">
+            <%= content3 %>
+          </div>
+        </div>
+      </section>
+      <!-- //////////////// -->
+      <section class="allcontainer">
+        <div class="category">
+          <form action="/category" method="get" class="formFlex">
+            <button class="longbtn" type="submit">Jokes by Category</button>
+            <label for="category" style="color: #5c3bee;">Choose a category:</label>
+            <select name="category" id="category" class="formcontrol">
+              <option value="Programming">Programming</option>
+              <option value="Miscellaneous">Miscellaneous</option>
+              <option value="Dark">Dark</option>
+              <option value="Pun">Pun</option>
+              <option value="Spooky">Spooky</option>
+              <option value="Christmas">Christmas</option>
+            </select>
+            <fieldset>
+              <legend>Blacklist categories:</legend>
+              <label><input type="checkbox" name="blacklist[]" value="nsfw"> NSFW</label>
+              <label><input type="checkbox" name="blacklist[]" value="religious"> Religious</label>
+              <label><input type="checkbox" name="blacklist[]" value="political"> Political</label>
+              <label><input type="checkbox" name="blacklist[]" value="racist"> Racist</label>
+              <label><input type="checkbox" name="blacklist[]" value="sexist"> Sexist</label>
+              <label><input type="checkbox" name="blacklist[]" value="explicit"> Explicit</label>
+            </fieldset>
+            <fieldset>
+              <legend>Joke type</legend>
+              <label><input type="checkbox"name="type" value="single">single</label>
+              <label><input type="checkbox"name="type" value = "twopart">twopart</label>
+            </fieldset>
+          </form>
+          <div class="content">
+            <%= content4 %>
+          </div>
+        </div>
+      </section>
+      <!-- ////////////////////// -->
+      <section class="allcontainer">
+        
+        <div>
+          <form action="/jokesByNumber" method="get">
+            <input  class="formcontrol" type="text" name="jokes" placeholder="Enter number of jokes" />
+            <button type="submit" class="button">Get Jokes</button>
+          </form>
+          
+          <% if (Array.isArray(content5)) { %>
+  <% content5.forEach((item, index) => { %>
+    <div>
+      <%= item %>
+    </div>
+  <% }) %>
+<% } else if (content5) { %>
+  <div class="content">
+    <%= content5 %>
+  </div>
+<% } %>
+                </div>
+              </section>  
+        <!-- //////////// -->
+      <section id="about" class="allcontainer">
+        <div>
+          <h2 style="color: #5c3bee;">About</h2>
+          <img class="pixel2" src="/image/gummy-virus.svg" alt="">
+          <p>This is a web application that fetches jokes from the JokeAPI.</p>
+          <p>It allows you to search for jokes by string, ID, or category, and also get random jokes.</p>
+          <p>Enjoy the humor!</p>
+          <p> License:
+            JokeAPI is licensed under the MIT License.
+            Before modifying and / or redistributing the source code, please take two minutes to read the license text.
+            You can view the full license text by clicking <a style="text-decoration: none;" href="https://sv443.net/LICENSE">here</a>.</p>
+        </div>
+        </section>
+        <footer>
+        <div>
+          <p>&copy; 2025 JokesWPain. All rights reserved.</p>
+          <p>Created with ❤ by Imran</p>
+        </footer>
+    </div>
+  </body>
+</html>
